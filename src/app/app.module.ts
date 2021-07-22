@@ -1,5 +1,5 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxsModule } from '@ngxs/store';
@@ -10,6 +10,9 @@ import { AppComponent } from './app.component';
 import { AppState } from './shared/app.state';
 import { CachingInterceptor } from './shared/utils/cache.interceptor';
 import { CacheService } from './shared/services/cache-service/cache.service';
+import { GlobalErrorHandler } from './shared/utils/error.handler';
+import { DialogService } from 'primeng/dynamicdialog';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,11 +24,17 @@ import { CacheService } from './shared/services/cache-service/cache.service';
     HttpClientModule,
     FormsModule,
     NgxsModule.forRoot([AppState]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [
+    DialogService,
     CacheService,
-    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler
+    },
   ],
   bootstrap: [AppComponent]
 })

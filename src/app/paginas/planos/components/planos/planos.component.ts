@@ -49,13 +49,15 @@ export class PlanosComponent implements OnInit, OnDestroy {
       next: planos => {
         this.planos = planos;
       }
-    })
+    });
   }
 
   selecionarPlano(plano: Plano) {
     if (plano.ativo) {
       this.store.dispatch(new SetPlano(plano));
       this.router.navigate(['dados', this.plataformaSku, plano.sku]);
+    } else {
+      throw new Error('Plano inativo');
     }
   }
 
