@@ -1,0 +1,28 @@
+import { Action, State, StateContext } from "@ngxs/store";
+import { SetPlano, SetPlataforma } from "./app.actions";
+import { Plano } from "./models/plano.model";
+import { Plataforma } from "./models/plataforma.model";
+
+export interface AppStateModel {
+    plataforma: Plataforma | null;
+    plano: Plano | null;
+}
+
+@State<AppStateModel>({
+    name: 'app',
+    defaults: {
+        plataforma: null,
+        plano: null
+    }
+})
+export class AppState {
+    @Action(SetPlataforma)
+    setPlataforma({ patchState }: StateContext<AppStateModel>, { plataforma }: SetPlataforma) {
+        patchState({ plataforma });
+    }
+
+    @Action(SetPlano)
+    setPlano({ patchState }: StateContext<AppStateModel>, { plano }: SetPlano) {
+        patchState({ plano });
+    }
+}
