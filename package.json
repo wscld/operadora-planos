@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test-dev": "ng test --karma-config karma-dev.conf.js",
+    "test-coverage": "ng test --no-watch --code-coverage"
   },
   "private": true,
   "dependencies": {
