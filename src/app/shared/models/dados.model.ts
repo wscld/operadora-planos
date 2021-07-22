@@ -6,6 +6,7 @@ export class DadosCliente {
     email?: string;
     dataNascimento?: Date;
     cpf?: string;
+    telefone?: string;
     plano?: Plano;
     plataforma?: Plataforma;
 
@@ -13,6 +14,7 @@ export class DadosCliente {
         nome?: string,
         email?: string,
         dataNascimento?: Date,
+        telefone?: string,
         cpf?: string,
         plano?: Plano,
         plataforma?: Plataforma
@@ -23,5 +25,6 @@ export class DadosCliente {
         this.cpf = cpf
         this.plano = plano
         this.plataforma = plataforma
+        this.telefone = telefone;
     }
 }

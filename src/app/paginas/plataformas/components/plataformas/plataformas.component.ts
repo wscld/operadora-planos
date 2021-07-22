@@ -29,13 +29,11 @@ export class PlataformasComponent implements OnInit, OnDestroy {
     this.subs.sink = this.plataformasService.obterPlataformas().subscribe({
       next: plataformas => {
         this.plataformas = plataformas;
-        console.log(plataformas)
       }
     });
   }
 
   selecionarPlataforma(plataforma: Plataforma) {
-    console.log(plataforma);
     this.store.dispatch(new SetPlataforma(plataforma));
     this.router.navigate(['planos', plataforma.sku]);
   }

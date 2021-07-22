@@ -1,3 +1,45 @@
+<app-topbar title="Dados cadastrais" [prevRoute]="prevRoute"></app-topbar>
 <div class="container">
-    
+
+    <div class="grid">
+        <div class="col-12 md:col-6" *ngIf="dadosCliente.plataforma">
+            <app-card [title]="dadosCliente.plataforma.nome"
+                subtitle="{{dadosCliente.plataforma.descricao |breakline}}"></app-card>
+        </div>
+        <div class="col-12 md:col-6" *ngIf="dadosCliente.plano">
+            <app-card [title]="dadosCliente.plano.franquia" subtitle="R$ {{dadosCliente.plano.valor}}"></app-card>
+        </div>
+    </div>
+
+    <div class="card text-left">
+        <form [formGroup]="dadosForm">
+            <div class="field">
+                <label for="firstname1">Nome</label>
+                <input id="firstname1" type="text" class="inputfield w-full" formControlName="nome" pInputText>
+            </div>
+            <div class="field">
+                <label for="lastname1">Email</label>
+                <input id="lastname1" type="text" class="inputfield w-full" formControlName="email" pInputText>
+            </div>
+            <div class="field">
+                <label for="lastname1">CPF</label>
+                <input id="lastname1" type="text" class="inputfield w-full" formControlName="cpf" mask="000.000.000-00"
+                    [validation]="false" pInputText>
+            </div>
+            <div class="field">
+                <label for="lastname1">Telefone</label>
+                <input id="lastname1" type="text" class="inputfield w-full" formControlName="telefone"
+                    mask="(00)00000-0009" [validation]="false" pInputText>
+            </div>
+            <div class="field">
+                <label for="lastname1">Data de nascimento</label>
+                <p-calendar styleClass="inputfield w-full" [monthNavigator]="true" [yearNavigator]="true"
+                    [yearRange]="yearRange" formControlName="dataNascimento"></p-calendar>
+            </div>
+        </form>
+
+        <div class="flex justify-content-center">
+            <p-button (click)="enviarDados()" label="Enviar"></p-button>
+        </div>
+    </div>
 </div>
