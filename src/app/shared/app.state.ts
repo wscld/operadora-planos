@@ -1,3 +1,4 @@
+import { Injectable } from "@angular/core";
 import { Action, State, StateContext } from "@ngxs/store";
 import { SetPlano, SetPlataforma } from "./app.actions";
 import { Plano } from "./models/plano.model";
@@ -15,6 +16,8 @@ export interface AppStateModel {
         plano: null
     }
 })
+
+@Injectable()
 export class AppState {
     @Action(SetPlataforma)
     setPlataforma({ patchState }: StateContext<AppStateModel>, { plataforma }: SetPlataforma) {

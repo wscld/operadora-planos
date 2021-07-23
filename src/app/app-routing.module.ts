@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '', redirectTo: 'plataformas', pathMatch: 'full'
+  },
+  {
     path: 'plataformas', loadChildren: () => import('./paginas/plataformas/plataformas.module').then(m => m.PlataformasModule)
   },
   {
