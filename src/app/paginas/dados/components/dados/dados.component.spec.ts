@@ -1,9 +1,9 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { NgxsModule, Store } from '@ngxs/store';
+import { NgxsModule } from '@ngxs/store';
 import { of } from 'rxjs';
 import { PlanosMock } from 'src/app/shared/utils/mocks/planos.mock';
 import { PlataformasMock } from 'src/app/shared/utils/mocks/plataformas.mock';
@@ -15,8 +15,6 @@ describe('DadosComponent', () => {
   let component: DadosComponent;
   let fixture: ComponentFixture<DadosComponent>;
   let dadosService: DadosService;
-  let router: Router;
-  let store: Store;
   afterEach(() => {
     TestBed.resetTestingModule();
   });
@@ -36,10 +34,8 @@ describe('DadosComponent', () => {
 
     fixture = TestBed.createComponent(DadosComponent);
     component = fixture.componentInstance;
-    store = TestBed.inject(Store);
 
     dadosService = TestBed.inject(DadosService);
-    router = TestBed.inject(Router);
 
     spyOn(dadosService, 'obterPlano').and.returnValue(of(PlanosMock.obterPlanos()[1]));
     spyOn(dadosService, 'obterPlataforma').and.returnValue(of(PlataformasMock.obterPlataformas()[1]));

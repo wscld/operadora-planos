@@ -9,7 +9,7 @@ import { DialogService } from '../../services/dialog/dialog.service';
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
-  display: boolean = false;
+  display = false;
   log?: Log;
   constructor(private dialogService: DialogService) { }
 

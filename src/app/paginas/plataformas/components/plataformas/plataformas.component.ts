@@ -25,7 +25,7 @@ export class PlataformasComponent implements OnInit, OnDestroy {
     this.carregarPlataformas();
   }
 
-  carregarPlataformas() {
+  carregarPlataformas(): void {
     this.subs.sink = this.plataformasService.obterPlataformas().subscribe({
       next: plataformas => {
         this.plataformas = plataformas;
@@ -33,7 +33,7 @@ export class PlataformasComponent implements OnInit, OnDestroy {
     });
   }
 
-  selecionarPlataforma(plataforma: Plataforma) {
+  selecionarPlataforma(plataforma: Plataforma): void {
     this.store.dispatch(new SetPlataforma(plataforma));
     this.router.navigate(['planos', plataforma.sku]);
   }

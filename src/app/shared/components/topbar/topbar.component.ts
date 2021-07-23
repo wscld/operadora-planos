@@ -8,14 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./topbar.component.scss']
 })
 export class TopbarComponent implements OnInit {
-  @Input() title: string = '';
+  @Input() title = '';
   @Input() prevRoute?: string;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    // nada aqui
   }
 
-  goBack() {
+  goBack(): void {
     this.router.navigate([this.prevRoute]);
   }
 }

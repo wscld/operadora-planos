@@ -15,7 +15,7 @@ import { DadosService } from '../../services/dados.service';
   styleUrls: ['./dados.component.scss']
 })
 export class DadosComponent implements OnInit {
-  yearRange: string = `1920:${new Date().getFullYear()}`
+  yearRange = `1920:${new Date().getFullYear()}`
   dadosForm: FormGroup;
   dadosCliente: DadosCliente = new DadosCliente();
   subs = new SubSink();
@@ -43,7 +43,7 @@ export class DadosComponent implements OnInit {
     this.carregarSkus();
   }
 
-  carregarSkus() {
+  carregarSkus(): void {
     this.subs.sink = this.app$?.subscribe({
       next: state => {
         if (state.plano && state.plataforma) {
@@ -59,14 +59,14 @@ export class DadosComponent implements OnInit {
     });
   }
 
-  carregarPlano(planoSku: string, plataformaSku: string) {
+  carregarPlano(planoSku: string, plataformaSku: string): void {
     this.subs.sink = this.dadosService.obterPlano(plataformaSku, planoSku).subscribe({
       next: plano => {
         this.dadosCliente.plano = plano;
       }
     });
   }
-  carregarPlataforma(plataformaSku: string) {
+  carregarPlataforma(plataformaSku: string): void {
     this.subs.sink = this.dadosService.obterPlataforma(plataformaSku).subscribe({
       next: plataforma => {
         this.dadosCliente.plataforma = plataforma;
@@ -74,7 +74,7 @@ export class DadosComponent implements OnInit {
     });
   }
 
-  montarDados() {
+  montarDados(): void {
     if (!this.dadosForm.invalid) {
       this.dadosCliente.nome = this.dadosForm?.get('nome')?.value
       this.dadosCliente.cpf = this.dadosForm?.get('cpf')?.value
@@ -86,7 +86,7 @@ export class DadosComponent implements OnInit {
     }
   }
 
-  enviarDados() {
+  enviarDados(): void {
     this.montarDados();
     console.log('Dados enviados com sucesso, verifique o DTO enviado:');
     console.log(this.dadosCliente);

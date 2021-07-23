@@ -1,12 +1,10 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { NgxsModule, Store } from '@ngxs/store';
+import { NgxsModule } from '@ngxs/store';
 import { of } from 'rxjs';
 import { SetPlataforma } from 'src/app/shared/app.actions';
-import { CacheService } from 'src/app/shared/services/cache-service/cache.service';
 import { PlataformasMock } from 'src/app/shared/utils/mocks/plataformas.mock';
 import { PlataformasService } from '../../services/plataformas.service';
 

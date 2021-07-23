@@ -1,11 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Select, Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { Store } from '@ngxs/store';
 import { SetPlano } from 'src/app/shared/app.actions';
-import { AppStateModel } from 'src/app/shared/app.state';
 import { Plano } from 'src/app/shared/models/plano.model';
-import { Plataforma } from 'src/app/shared/models/plataforma.model';
 import { SubSink } from 'subsink';
 import { PlanosService } from '../../services/planos.service';
 
@@ -16,7 +13,7 @@ import { PlanosService } from '../../services/planos.service';
 })
 export class PlanosComponent implements OnInit, OnDestroy {
   planos: Plano[] = [];
-  plataformaSku: string = '';
+  plataformaSku = '';
   subs = new SubSink();
 
   constructor(
@@ -30,12 +27,12 @@ export class PlanosComponent implements OnInit, OnDestroy {
     this.carregarSkuPlataforma();
   }
 
-  carregarSkuPlataforma() {
+  carregarSkuPlataforma(): void {
     this.plataformaSku = this.route.snapshot.params.plataformaSku;
     this.carregarPlanos();
   }
 
-  carregarPlanos() {
+  carregarPlanos(): void {
     this.subs.sink = this.planosService.obterPlanosParaPlataforma(this.plataformaSku).subscribe({
       next: planos => {
         this.planos = planos;
@@ -43,7 +40,7 @@ export class PlanosComponent implements OnInit, OnDestroy {
     });
   }
 
-  selecionarPlano(plano: Plano) {
+  selecionarPlano(plano: Plano): void {
     if (plano.ativo) {
       this.store.dispatch(new SetPlano(plano));
       this.router.navigate(['dados', this.plataformaSku, plano.sku]);

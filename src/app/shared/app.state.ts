@@ -20,12 +20,12 @@ export interface AppStateModel {
 @Injectable()
 export class AppState {
     @Action(SetPlataforma)
-    setPlataforma({ patchState }: StateContext<AppStateModel>, { plataforma }: SetPlataforma) {
+    setPlataforma({ patchState }: StateContext<AppStateModel>, { plataforma }: SetPlataforma): void {
         patchState({ plataforma });
     }
 
     @Action(SetPlano)
-    setPlano({ patchState }: StateContext<AppStateModel>, { plano }: SetPlano) {
+    setPlano({ patchState }: StateContext<AppStateModel>, { plano }: SetPlano): void {
         patchState({ plano });
     }
 }
