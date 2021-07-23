@@ -1,27 +1,21 @@
-# AngularListaPlanos
+# Comandos úteis
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.3.
+##### Servidor de desenvolvimento
 
-## Development server
+utilize `ng serve` e acesse `http://localhost:4200/` para visualizar a aplicação.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+##### Rodar testes unitarios
 
-## Code scaffolding
+utilize `npm run test-dev` para visualizar os testes.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+##### Exibir coverage
 
-## Build
+utilize `npm run test-coverage` e acesse o arquivo html dentro da pasta coverage.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+##### Rodar lint
 
-## Running unit tests
+utilize `npm run lint` para verificar se o linting está correto.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+##### Gerar build de produção
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+utilize `npm run build-prod` para gerar uma build de produção.
