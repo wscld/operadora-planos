@@ -29,6 +29,10 @@ export class PlataformasComponent implements OnInit, OnDestroy {
     this.subs.sink = this.plataformasService.obterPlataformas().subscribe({
       next: plataformas => {
         this.plataformas = plataformas;
+      },
+      error: () => {
+        /* istanbul ignore next */
+        throw new Error('Algo deu errado ao carregar as plataformas');
       }
     });
   }

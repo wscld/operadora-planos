@@ -65,6 +65,10 @@ export class DadosComponent implements OnInit {
     this.subs.sink = this.dadosService.obterPlano(plataformaSku, planoSku).subscribe({
       next: plano => {
         this.dadosCliente.plano = plano;
+      },
+      error: () => {
+        /* istanbul ignore next */
+        throw new Error('Algo deu errado ao carregar os planos');
       }
     });
   }
@@ -72,6 +76,10 @@ export class DadosComponent implements OnInit {
     this.subs.sink = this.dadosService.obterPlataforma(plataformaSku).subscribe({
       next: plataforma => {
         this.dadosCliente.plataforma = plataforma;
+      },
+      error: () => {
+        /* istanbul ignore next */
+        throw new Error('Algo deu errado ao carregar as plataformas');
       }
     });
   }

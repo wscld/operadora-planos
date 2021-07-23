@@ -36,6 +36,10 @@ export class PlanosComponent implements OnInit, OnDestroy {
     this.subs.sink = this.planosService.obterPlanosParaPlataforma(this.plataformaSku).subscribe({
       next: planos => {
         this.planos = planos;
+      },
+      error: () => {
+        /* istanbul ignore next */
+        throw new Error('Algo deu errado ao carregar os planos');
       }
     });
   }
