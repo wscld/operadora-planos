@@ -19,3 +19,7 @@ utilize `npm run lint` para verificar se o linting está correto.
 ##### Gerar build de produção
 
 utilize `npm run build-prod` para gerar uma build de produção.
+
+# Dados adicionais
+
+a cada push na master é rodada uma action que realiza testes unitarios, linting do código e gera um artefato para prod.

@@ -1,6 +1,7 @@
 <app-topbar title="Plataformas"></app-topbar>
 
 <div class="container">
+    <div class="title">Selecione sua plataforma</div>
     <div class="grid">
         <div class="col-12 md:col-4" *ngFor="let plataforma of plataformas">
             <app-card [title]="plataforma.nome" (click)="selecionarPlataforma(plataforma)"

@@ -5,6 +5,7 @@ import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { AppStateModel } from 'src/app/shared/app.state';
 import { DadosCliente } from 'src/app/shared/models/dados.model';
+import { DialogService } from 'src/app/shared/services/dialog/dialog.service';
 import { FormUtils } from 'src/app/shared/utils/form.utils';
 import { SubSink } from 'subsink';
 import { DadosService } from '../../services/dados.service';
@@ -29,6 +30,7 @@ export class DadosComponent implements OnInit {
     protected formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private dadosService: DadosService,
+    private dialogService: DialogService
   ) {
     this.dadosForm = this.formBuilder.group({
       nome: ['', [Validators.required, FormUtils.genericValidator(FormUtils.genericValidator.bind(this))]],
@@ -88,6 +90,7 @@ export class DadosComponent implements OnInit {
 
   enviarDados(): void {
     this.montarDados();
+    this.dialogService.exibirDialog('Sucesso', 'verifique seu console');
     console.log('Dados enviados com sucesso, verifique o DTO enviado:');
     console.log(this.dadosCliente);
   }

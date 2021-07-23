@@ -1,6 +1,7 @@
 <app-topbar title="Dados cadastrais" [prevRoute]="prevRoute"></app-topbar>
 <div class="container">
 
+    <div class="title">Plano selecionado</div>
     <div class="grid">
         <div class="col-12 md:col-6" *ngIf="dadosCliente.plataforma">
             <app-card [title]="dadosCliente.plataforma.nome"
@@ -11,6 +12,7 @@
         </div>
     </div>
 
+    <div class="title mt-4">Dados cadastrais</div>
     <div class="card text-left">
         <form [formGroup]="dadosForm">
             <div class="field">
