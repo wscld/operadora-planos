@@ -80,19 +80,42 @@ describe('DadosComponent', () => {
     expect(component.dadosCliente.plataforma).toEqual(plataforma);
   });
 
-  it('deve carregar Plano', () => {
-
-  });
-
-  it('deve carregar Plataforma', () => {
-
-  });
-
   it('deve montar dados', () => {
+    fixture.detectChanges();
+    component.dadosForm.get('nome')?.setValue('Wesley');
+    component.dadosForm.get('telefone')?.setValue('21999999999');
+    component.dadosForm.get('cpf')?.setValue('00000000000');
+    component.dadosForm.get('email')?.setValue('weslcld@gmail.com');
+    component.dadosForm.get('dataNascimento')?.setValue(new Date());
 
+    component.montarDados();
+    expect(component.dadosCliente.nome).toEqual('Wesley');
+    expect(component.dadosCliente.telefone).toEqual('21999999999');
+    expect(component.dadosCliente.cpf).toEqual('00000000000');
+    expect(component.dadosCliente.email).toEqual('weslcld@gmail.com');
+    expect(component.dadosCliente.dataNascimento).toEqual(new Date());
   });
 
-  it('deve enviar dados', () => {
+  it('deve exibir erro com dados invalidos', () => {
+    fixture.detectChanges();
+    component.dadosForm.get('nome')?.setValue('Wesley');
+    component.dadosForm.get('telefone')?.setValue('21999999');
+    component.dadosForm.get('cpf')?.setValue('00000000');
+    component.dadosForm.get('email')?.setValue('weslcldgmail.com');
+    component.dadosForm.get('dataNascimento')?.setValue(new Date());
 
+    try {
+      component.montarDados();
+    } catch (err) {
+      expect(err).toEqual(new Error('Verifique o formulario'));
+    }
+  });
+
+  it('deve montar dados ao enviar', () => {
+    spyOn(component, 'montarDados');
+    spyOn(console, 'log');
+    component.enviarDados();
+    expect(component.montarDados).toHaveBeenCalled();
+    expect(console.log).toHaveBeenCalledTimes(2);
   });
 });
