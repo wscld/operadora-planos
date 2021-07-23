@@ -18,13 +18,12 @@ export class PlanosComponent implements OnInit, OnDestroy {
   planos: Plano[] = [];
   plataformaSku: string = '';
   subs = new SubSink();
-  @Select() app$?: Observable<AppStateModel>;
 
   constructor(
     private planosService: PlanosService,
     private route: ActivatedRoute,
     private router: Router,
-    private store: Store
+    public store: Store
   ) { }
 
   ngOnInit(): void {
@@ -32,16 +31,8 @@ export class PlanosComponent implements OnInit, OnDestroy {
   }
 
   carregarSkuPlataforma() {
-    this.subs.sink = this.app$?.subscribe({
-      next: state => {
-        if (state.plataforma) {
-          this.plataformaSku = (state.plataforma as Plataforma).sku;
-        } else {
-          this.plataformaSku = this.route.snapshot.params.plataformaSku;
-        }
-        this.carregarPlanos();
-      }
-    });
+    this.plataformaSku = this.route.snapshot.params.plataformaSku;
+    this.carregarPlanos();
   }
 
   carregarPlanos() {

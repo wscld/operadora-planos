@@ -18,7 +18,7 @@ export class PlataformasComponent implements OnInit, OnDestroy {
   constructor(
     private plataformasService: PlataformasService,
     private router: Router,
-    private store: Store
+    public store: Store
   ) { }
 
   ngOnInit(): void {
