@@ -4,6 +4,12 @@ body {
     font-size: 18px;
     margin: 0;
 
+    .field > label {
+        display: inline-block;
+        margin-bottom: 0.2rem;
+        font-size: 13px;
+    }
+
     .container {
         max-width: 900px;
         margin: auto;

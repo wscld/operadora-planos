@@ -1,5 +1,6 @@
 /* istanbul ignore next */
 import { Component, Input, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,10 +11,10 @@ import { Router } from '@angular/router';
 export class TopbarComponent implements OnInit {
   @Input() title = '';
   @Input() prevRoute?: string;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private titleService: Title) { }
 
   ngOnInit(): void {
-    // nada aqui
+    this.titleService.setTitle(this.title);
   }
 
   goBack(): void {

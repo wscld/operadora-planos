@@ -15,26 +15,28 @@
         <form [formGroup]="dadosForm">
             <div class="field">
                 <label for="nome">Nome</label>
-                <input id="nome" type="text" class="inputfield w-full" formControlName="nome" pInputText>
+                <input id="nome" placeholder="Exemplo nome" type="text" class="inputfield w-full"
+                    formControlName="nome" pInputText>
             </div>
             <div class="field">
                 <label for="email">Email</label>
-                <input id="email" type="text" class="inputfield w-full" formControlName="email" pInputText>
+                <input id="email" placeholder="exemplo@exemplo.com" type="text" class="inputfield w-full"
+                    formControlName="email" pInputText>
             </div>
             <div class="field">
                 <label for="cpf">CPF</label>
-                <input id="cpf" type="text" class="inputfield w-full" formControlName="cpf" mask="000.000.000-00"
-                    [validation]="false" pInputText>
+                <input id="cpf" placeholder="000.000.000-00" type="text" class="inputfield w-full" formControlName="cpf"
+                    mask="000.000.000-00" [validation]="false" pInputText>
             </div>
             <div class="field">
                 <label for="telefone">Telefone</label>
-                <input id="telefone" type="text" class="inputfield w-full" formControlName="telefone"
-                    mask="(00)00000-0009" [validation]="false" pInputText>
+                <input id="telefone" placeholder="(21) 99999-9999" type="text" class="inputfield w-full"
+                    formControlName="telefone" mask="(00)00000-0009" [validation]="false" pInputText>
             </div>
             <div class="field">
                 <label for="dataNascimento">Data de nascimento</label>
-                <p-calendar styleClass="inputfield w-full" id="dataNascimento" [monthNavigator]="true" [yearNavigator]="true"
-                    [yearRange]="yearRange" formControlName="dataNascimento"></p-calendar>
+                <p-calendar placeholder="14/07/1995" styleClass="inputfield w-full" id="dataNascimento" [monthNavigator]="true"
+                    [yearNavigator]="true" [yearRange]="yearRange" formControlName="dataNascimento"></p-calendar>
             </div>
         </form>
 
