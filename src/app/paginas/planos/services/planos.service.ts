@@ -18,6 +18,6 @@ export class PlanosService {
     return this.httpClient.get<Plano[]>(`${environment.apiUrl}/planos/${plataformaSku}`, { headers })
       .pipe(map((res: any) =>
         res.planos.map((plano: Plano) =>
-          new Plano(plano.sku, plano.franquia, plano.valor, plano.ativo))));
+          new Plano(plano.sku, plano.franquia, plano.valor, plano.ativo, plano.aparelho))));
   }
 }

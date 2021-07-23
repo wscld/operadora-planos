@@ -3,4 +3,14 @@
         {{title}}
     </div>
     <div class="subtitle" innerHTML="{{subtitle}}"></div>
+    <div *ngIf="subtitle2">
+        <p-divider align="center" type="dashed">
+            <div class="p-d-inline-flex p-ai-center">
+                <i class="pi pi-plus-circle"></i>
+            </div>
+        </p-divider>
+        <div class="subtitle text-bold">{{subtitle2}}</div>
+        <div class="subtitle">{{subtitle3}}</div>
+        <div class="subtitle text-small">{{subtitle4}}</div>
+    </div>
 </div>

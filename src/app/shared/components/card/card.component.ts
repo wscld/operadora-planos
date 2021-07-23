@@ -7,8 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  @Input() title = '';
-  @Input() subtitle = '';
+  @Input() title!: string;
+  @Input() subtitle!: string;
+  @Input() subtitle2?: string;
+  @Input() subtitle3?: string;
+  @Input() subtitle4?: string;
   constructor() {
     // nada aqui
   }

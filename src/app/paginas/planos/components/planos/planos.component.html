@@ -4,7 +4,10 @@
     <div class="title">Planos disponíveis</div>
     <div class="grid">
         <div class="col-12 md:col-4" *ngFor="let plano of planos" [class.inativo]="!plano.ativo">
-            <app-card [title]="plano.franquia" subtitle="R$ {{plano.valor}}" (click)="selecionarPlano(plano)">
+            <app-card [title]="plano.franquia" subtitle="R$ {{plano.valor}}" (click)="selecionarPlano(plano)"
+                [subtitle2]="plano.aparelho?.nome"
+                subtitle3="{{plano.aparelho?.numeroParcelas}}x de R$ {{plano.aparelho?.valorParcela || plano.aparelho?.valor}}"
+                subtitle4="ou R$ {{plano.aparelho?.valor}} a vista">
             </app-card>
         </div>
     </div>

@@ -6,6 +6,7 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { DividerModule } from 'primeng/divider'
 
 
 
@@ -14,7 +15,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
   imports: [
     CommonModule,
     ButtonModule,
-    DialogModule
+    DialogModule,
+    DividerModule
   ],
   exports: [
     BreaklinePipe,

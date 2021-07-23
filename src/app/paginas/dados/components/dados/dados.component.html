@@ -8,7 +8,10 @@
                 subtitle="{{dadosCliente.plataforma.descricao |breakline}}"></app-card>
         </div>
         <div class="col-12 md:col-6" *ngIf="dadosCliente.plano">
-            <app-card [title]="dadosCliente.plano.franquia" subtitle="R$ {{dadosCliente.plano.valor}}"></app-card>
+            <app-card [title]="dadosCliente.plano.franquia" subtitle="R$ {{dadosCliente.plano.valor}}"
+                [subtitle2]="dadosCliente.plano.aparelho?.nome"
+                subtitle3="{{dadosCliente.plano.aparelho?.numeroParcelas}}x de R$ {{dadosCliente.plano.aparelho?.valorParcela || dadosCliente.plano.aparelho?.valor}}"
+                subtitle4="ou R$ {{dadosCliente.plano.aparelho?.valor}} a vista"></app-card>
         </div>
     </div>
 
@@ -17,8 +20,8 @@
         <form [formGroup]="dadosForm">
             <div class="field">
                 <label for="nome">Nome</label>
-                <input id="nome" placeholder="Exemplo nome" type="text" class="inputfield w-full"
-                    formControlName="nome" pInputText>
+                <input id="nome" placeholder="Exemplo nome" type="text" class="inputfield w-full" formControlName="nome"
+                    pInputText>
             </div>
             <div class="field">
                 <label for="email">Email</label>
@@ -37,8 +40,9 @@
             </div>
             <div class="field">
                 <label for="dataNascimento">Data de nascimento</label>
-                <p-calendar placeholder="14/07/1995" styleClass="inputfield w-full" id="dataNascimento" [monthNavigator]="true"
-                    [yearNavigator]="true" [yearRange]="yearRange" formControlName="dataNascimento"></p-calendar>
+                <p-calendar placeholder="14/07/1995" styleClass="inputfield w-full" id="dataNascimento"
+                    [monthNavigator]="true" [yearNavigator]="true" [yearRange]="yearRange"
+                    formControlName="dataNascimento"></p-calendar>
             </div>
         </form>
 
