@@ -1,3 +1,4 @@
+/* istanbul ignore next */
 import { Component, OnInit } from '@angular/core';
 import { Log } from '../../models/log.model';
 import { DialogService } from '../../services/dialog/dialog.service';

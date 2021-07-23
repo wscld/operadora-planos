@@ -81,19 +81,20 @@ describe('DadosComponent', () => {
   });
 
   it('deve montar dados', () => {
+    const date = new Date();
     fixture.detectChanges();
     component.dadosForm.get('nome')?.setValue('Wesley');
     component.dadosForm.get('telefone')?.setValue('21999999999');
     component.dadosForm.get('cpf')?.setValue('00000000000');
     component.dadosForm.get('email')?.setValue('weslcld@gmail.com');
-    component.dadosForm.get('dataNascimento')?.setValue(new Date());
+    component.dadosForm.get('dataNascimento')?.setValue(date);
 
     component.montarDados();
     expect(component.dadosCliente.nome).toEqual('Wesley');
     expect(component.dadosCliente.telefone).toEqual('21999999999');
     expect(component.dadosCliente.cpf).toEqual('00000000000');
     expect(component.dadosCliente.email).toEqual('weslcld@gmail.com');
-    expect(component.dadosCliente.dataNascimento).toEqual(new Date());
+    expect(component.dadosCliente.dataNascimento).toEqual(date);
   });
 
   it('deve exibir erro com dados invalidos', () => {
