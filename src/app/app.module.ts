@@ -13,6 +13,7 @@ import { CacheService } from './shared/services/cache-service/cache.service';
 import { GlobalErrorHandler } from './shared/utils/error.handler';
 import { DialogService } from 'primeng/dynamicdialog';
 import { SharedModule } from './shared/shared.module';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SharedModule } from './shared/shared.module';
   providers: [
     DialogService,
     CacheService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },
     {
       provide: ErrorHandler,

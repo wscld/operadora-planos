@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://private-59658d-celulardireto2017.apiary-mock.com',
+  apiUrl: 'https://private-59658d-celulardireto2017.apiary-mock.com',
 };
 
 /*
